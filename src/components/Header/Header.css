@@ -1,0 +1,107 @@
+.header-container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 10px;
+  align-items: center;
+  padding: 35px 2rem 0px 2rem;
+}
+.header-container-mobile {
+  display: none;
+}
+.logo-Img {
+  height: 30px;
+}
+.search-bar-div {
+  height: 3.5rem;
+  width: 40%;
+  min-width: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-input {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #ffffff;
+  outline: none;
+  color: white;
+  font-size: 100%;
+  opacity: 0.3;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding-left: 1rem;
+}
+.search-glass-icn {
+  position: absolute;
+  width: 20px;
+  right: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-container {
+    display: none;
+  }
+  .header-container-mobile {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    min-height: 70px;
+    padding: 10px;
+  }
+  .burgir-icn,
+  .logo-mobile-icn,
+  .search-icn {
+    position: absolute;
+    top: 16px;
+  }
+  .burgir-icn {
+    width: 18px;
+    height: 12px;
+    left: 16px;
+  }
+  .logo-mobile-icn {
+    width: 110px;
+    left: 72px;
+    top: 12px;
+  }
+  .search-icn {
+    width: 18px;
+    right: 30px;
+  }
+  .mobile-drawer-main {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .mobile-drawer-content {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding-top: 25px;
+    animation: slide 0.2s linear;
+  }
+  .mobile-drawer-content h3 {
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 30px;
+  }
+  @keyframes slide {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 80%;
+    }
+  }
+}
