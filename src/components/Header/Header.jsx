@@ -1,21 +1,38 @@
 import React, { useState, useEffect } from 'react'
 import './Header.css'
-import { useDispatch } from 'react-redux'
-import { fetcWeatherDeatils } from '../../redux/dataSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchWeatherAction } from '../../redux/weatherSlice';
+import { setAddItemsToSearchList } from '../../redux/favouriteSlice'
+import { setAddItemToList, setTrue } from '../../redux/recSearchSlice';
 const Header = () => {
 
 
-    const dispatch = useDispatch();
-    const [inputValue, setinputValue] = useState('')
-    // useEffect(() => {
-    //     dispatch(fetcWeatherDeatils({ search: inputValue }))
-    // }, [dispatch])
 
+
+    const dispatch = useDispatch();
+    const [inputValue, setinputValue] = useState("")
+
+
+    useEffect(() => {
+        dispatch(fetchWeatherAction('udupi'));
+    }, [dispatch])
+
+    const item = useSelector((state) => state);
+    console.log("data", item)
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(fetcWeatherDeatils({ search: inputValue }))
+        dispatch(fetchWeatherAction(inputValue));
 
-    }
+        const weatherDetails = item && item.weatherReducer.weather;
+        console.log("weatherDetails", weatherDetails)
+        // dispatch(setAddItemToList(weatherDetails))
+        dispatch(setTrue())
+    };
+
+
+
+
+
 
 
     const [showDrawer, setshowDrawer] = useState(false);
@@ -30,8 +47,8 @@ const Header = () => {
         <>
             <div className='header-container'>
                 <img src={require('../../assets/logo_web.png')} className='logo-Img' alt="logo" />
-                <form className='search-bar-div' onSubmit={submitHandler}>
-                    <input type="text" placeholder='Search' className='search-input' onChange={(e) => setinputValue(e.target.value)} />
+                <form className='search-bar-div' onSubmit={submitHandler} >
+                    <input type="text" placeholder='Search' value={inputValue} className='search-input' onChange={(e) => setinputValue(e.target.value)} />
                     <img className='search-glass-icn' src={require("../../assets/PngItem_307511.png")} alt="glass" />
 
                 </form>

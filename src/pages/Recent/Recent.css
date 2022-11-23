@@ -82,6 +82,16 @@
 .value {
   font-size: 22px;
 }
+.no-fav {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 300px;
+}
 
 @media only screen and (max-width: 768px) {
   .favourite-container {

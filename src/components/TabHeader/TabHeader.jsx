@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 import './TabHeader.css'
 
 const TabHeader = () => {
@@ -28,15 +29,21 @@ const TabHeader = () => {
         <>
             <div className="tabheader-container">
                 <div className="left-section">
-                    <div className="home">
-                        HOME
-                    </div>
-                    <div className="favourite">
-                        FAVOURITE
-                    </div>
-                    <div className="recent-search">
-                        RECENT SEARCH
-                    </div>
+                    <NavLink to='/' className="link-names" >
+                        <h3 className="home">
+                            HOME
+                        </h3>
+                    </NavLink>
+                    <NavLink to='/fav' className="link-names" >
+                        <h3 className="favourite">
+                            FAVOURITE
+                        </h3>
+                    </NavLink>
+                    <NavLink to='/rec' className="link-names" >
+                        <h3 className="recent-search">
+                            RECENT SEARCH
+                        </h3>
+                    </NavLink>
                 </div>
                 <div className="right-section">{todaysDate}</div>
             </div>

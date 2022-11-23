@@ -13,7 +13,9 @@ export const fetcWeatherDeatils = createAsyncThunk(
         })
             .then(response => response.json())
             .then(response => console.log(response))
+            .then(response => response)
             .catch(err => console.error(err));
+
     }
 
 )
@@ -33,10 +35,11 @@ const dataSlice = createSlice({
         },
         [fetcWeatherDeatils.fulfilled]: (state, action) => {
             console.log("fetched Data Successfully");
-            console.log(state.payload.user)
-            return action.payload.user;
+            console.log(action.payload)
+            return action.payload;
         },
     },
+
 })
 
 export default dataSlice.reducer;

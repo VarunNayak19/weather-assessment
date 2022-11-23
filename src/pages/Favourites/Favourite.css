@@ -33,7 +33,7 @@
 }
 .tempdets {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   column-gap: 2rem;
   align-items: center;
 }
@@ -43,6 +43,7 @@
 .heart-yellow {
   position: absolute;
   right: 30px;
+  top: 40%;
 }
 .modal-div {
   width: 100%;
@@ -80,6 +81,16 @@
   color: white;
   min-width: 100px;
   min-height: 35px;
+}
+.no-fav {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 300px;
 }
 
 @media only screen and (max-width: 768px) {
