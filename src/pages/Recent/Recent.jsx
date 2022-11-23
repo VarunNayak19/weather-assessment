@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Modal } from '@mui/material'
 
 import { useDispatch, useSelector } from 'react-redux';
+import { setClearsearchItems } from '../../redux/recSearchSlice';
 // import { setClearCartItems2 } from '../../redux/recSearchSlice';
 
 const Recent = () => {
@@ -46,6 +47,11 @@ const Recent = () => {
   console.log("favarr", favarr)
 
 
+  const clearList = () => {
+    dispatch(setClearsearchItems())
+    handleClose();
+  }
+
   return (
     <>
       {
@@ -87,7 +93,7 @@ const Recent = () => {
                   <h3>Are you sure you want to clear all recent searches?</h3>
                   <div className='buttons'>
                     <button className='modal-button' onClick={handleClose}>NO</button>
-                    <button className='modal-button' onClick={clearCart} >YES</button>
+                    <button className='modal-button' onClick={clearList} >YES</button>
                   </div>
                 </div>
 
