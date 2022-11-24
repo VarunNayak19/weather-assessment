@@ -32,7 +32,7 @@ const Home = () => {
     let far = (cel * 9 * 0.2) + 32;
 
 
-    //redux kelsa
+    //redux work
 
     const onAddToCart = () => {
         const item = weatherDetails && weatherDetails;
