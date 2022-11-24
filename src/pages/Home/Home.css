@@ -59,10 +59,11 @@
   width: 100%;
   display: flex;
   padding: 2rem 0;
+  padding-bottom: 10px !important;
   justify-content: space-evenly;
   column-gap: 2.5% !important;
   align-items: center;
-  margin-top: 17%;
+  margin-top: 14%;
   border-top: 1px solid white;
 }
 .bottom-det {
@@ -91,10 +92,12 @@
   color: #fad05b;
 }
 .temp-display {
-  font-size: 64px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+}
+.temp-value-in-home {
+  font-size: 64px;
 }
 @media only screen and (max-width: 768px) {
   .place-details-div {
@@ -121,7 +124,7 @@
     margin-top: 230px;
   }
   .min-max {
-    min-width: 110px;
+    min-width: 120px;
   }
   .desc h1 {
     font-size: 18px;

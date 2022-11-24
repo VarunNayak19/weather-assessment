@@ -122,7 +122,7 @@ const Home = () => {
                                                 <img src={require(`../../assets/weathericons/${weatherDetails.weather[0].icon}@2x.png`)} alt='temp-icn' className='temp-icn' />
                                             </div>
                                             <div className="temp">
-                                                <div className='temp-display'><span>{checked ? far.toFixed(0) : cel.toFixed(0)}</span></div> <div className='type'>
+                                                <div className='temp-display'><p className='temp-value-in-home'>{checked ? far.toFixed(0) : cel.toFixed(0)}</p></div> <div className='type'>
                                                     {/* <div className='celcius'>
                                                         C
                                                     </div>

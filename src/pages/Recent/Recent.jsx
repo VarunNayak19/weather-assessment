@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Modal } from '@mui/material'
-
+import './Recent.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { setClearsearchItems } from '../../redux/recSearchSlice';
 import { useNavigate } from 'react-router-dom';
@@ -95,7 +95,7 @@ const Recent = () => {
                     </div>
                     <div className="tempdets">
                       <img src={require(`../../assets/weathericons/${e.weather[0].icon}@2x.png`)} alt="wicon" className='w-icon' />
-                      <span className='temp-value-in-fav'><span className='temp-det-in-fav'>{e.main.temp.toFixed(0)}</span><span>&#176;C</span></span><span>{e.weather[0].description}</span>
+                      <span className='temp-value-in-fav'><span className='temp-det-in-fav'>{e.main.temp.toFixed(0)}</span><span>&#176;C</span></span><span className='capitalize'>{e.weather[0].description}</span>
                     </div>
                     {
 
