@@ -57,7 +57,7 @@ const Recent = () => {
   //yellowwhitehearttoggle
 
   // const [yellow, setyellow] = useState(false);
-  // let favid = JSON.parse(localStorage.getItem("favid") || '[]');
+  let favid = JSON.parse(localStorage.getItem("favid") || '[]');
   // console.log("favid", favid)
   // favid.map((e, i) => (
   //   favarr.map((e, i) => (
@@ -89,9 +89,25 @@ const Recent = () => {
                       <img src={require(`../../assets/weathericons/${e.weather[0].icon}@2x.png`)} alt="wicon" className='w-icon' />
                       <span className='temp-value-in-fav'>{e.main.temp.toFixed(0)}<span>&#176;C</span></span><span>{e.weather[0].description}</span>
                     </div>
-                    <div className="heart">
+                    {
+
+                      favid.map((f, i) => {
+                        if (e.id === f) {
+                          return (
+                            <div className="heart">
+                              <img src={require("../../assets/icon_favourite_Active.png")} alt="heart" className='heart-yellow' />
+                            </div>
+                          );
+                        }
+                        else {
+                          return (<div><img src={require("../../assets/icon_favourite.png")} width="18px" alt="heart" className='heart-yellow' /></div>);
+                        }
+                      })
+
+                    }
+                    {/* <div className="heart">
                       <img src={require("../../assets/icon_favourite_Active.png")} alt="heart" className='heart-yellow' />
-                    </div>
+                    </div> */}
                   </div>
                 ))
               }
