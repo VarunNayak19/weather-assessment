@@ -1,6 +1,7 @@
 import { Modal } from '@mui/material'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { selectCartItems, setClearCartItems, setRemoveItemFromCart } from '../../redux/favouriteSlice';
 import './Favourite.css'
 const Favourite = () => {
@@ -48,6 +49,13 @@ const Favourite = () => {
     const clearCart = () => {
         dispatch(setClearCartItems())
     }
+    const navigate = useNavigate();
+    const sendbacktohome = (i) => {
+        let item2 = e[i];
+        console.log("2", item2);
+        localStorage.setItem("searchfromthunk", JSON.stringify(item2));
+        navigate("/");
+    }
 
     return (
         <>
@@ -66,12 +74,12 @@ const Favourite = () => {
                             {
                                 e.map((e, i) => (
                                     <div className="eachdiv" key={i}>
-                                        <div className="city-dets">
+                                        <div className="city-dets" onClick={() => sendbacktohome(i)}>
                                             <span>{e.name}</span>, <span>{e.sys.country}</span>
                                         </div>
                                         <div className="tempdets">
                                             <img src={require(`../../assets/weathericons/${e.weather[0].icon}@2x.png`)} alt="wicon" className='w-icon' />
-                                            <span>{e.main.temp.toFixed(0)}&#176;C</span><span>{e.weather[0].description}</span>
+                                            <span><span className='temp-det-in-fav'>{e.main.temp.toFixed(0)}</span>&#176;C</span><span>{e.weather[0].description}</span>
                                         </div>
                                         <div className="heart">
                                             <img src={require("../../assets/icon_favourite_Active.png")} alt="heart" className='heart-yellow' onClick={() => onRemoveItem(i)} />

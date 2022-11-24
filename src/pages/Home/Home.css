@@ -45,7 +45,7 @@
   align-items: baseline;
 }
 .temp span {
-  font-size: 300%;
+  font-size: 64px;
 }
 .type {
   display: flex;
@@ -88,6 +88,12 @@
 }
 .yellowify {
   color: #fad05b;
+}
+.temp-display {
+  font-size: 64px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 @media only screen and (max-width: 768px) {
   .place-details-div {

@@ -3,6 +3,7 @@ import { Modal } from '@mui/material'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { setClearsearchItems } from '../../redux/recSearchSlice';
+import { useNavigate } from 'react-router-dom';
 // import { setClearCartItems2 } from '../../redux/recSearchSlice';
 
 const Recent = () => {
@@ -66,6 +67,14 @@ const Recent = () => {
   // ))
 
 
+  const navigate = useNavigate();
+  const sendbacktohome = (i) => {
+    let item2 = favarr[i];
+    console.log("2", item2);
+    localStorage.setItem("searchfromthunk", JSON.stringify(item2));
+    navigate("/");
+  }
+
   return (
     <>
       {
@@ -82,12 +91,12 @@ const Recent = () => {
               {
                 favarr.reverse().map((e, i) => (
                   <div className="eachdiv" key={i}>
-                    <div className="city-dets">
+                    <div className="city-dets" onClick={() => sendbacktohome(i)}>
                       <span>{e.name}</span>, <span>{e.sys.country}</span>
                     </div>
                     <div className="tempdets">
                       <img src={require(`../../assets/weathericons/${e.weather[0].icon}@2x.png`)} alt="wicon" className='w-icon' />
-                      <span className='temp-value-in-fav'>{e.main.temp.toFixed(0)}<span>&#176;C</span></span><span>{e.weather[0].description}</span>
+                      <span className='temp-value-in-fav'><span className='temp-det-in-fav'>{e.main.temp.toFixed(0)}</span><span>&#176;C</span></span><span>{e.weather[0].description}</span>
                     </div>
                     {
 

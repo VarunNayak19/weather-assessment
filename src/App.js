@@ -11,25 +11,25 @@ import Recent from './pages/Recent/Recent';
 
 function App() {
 
-  // const [loadervis, setloadervis] = useState(true)
+  const [loadervis, setloadervis] = useState(true)
 
-  // setTimeout(() => {
-  //   setloadervis(false)
-  // }, 5000);
+  setTimeout(() => {
+    setloadervis(false)
+  }, 2000);
   return (
     <div className="App">
-      {/* { */}
-      {/* // loadervis ? <Loader /> : */}
-      <>
-        <Header />
-        <TabHeader />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/fav' element={<Favourite />} />
-          <Route path='/rec' element={<Recent />} />
-        </Routes>
-      </>
-      {/* } */}
+      {
+        loadervis ? <Loader /> :
+          <>
+            <Header />
+            <TabHeader />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/fav' element={<Favourite />} />
+              <Route path='/rec' element={<Recent />} />
+            </Routes>
+          </>
+      }
     </div>
   );
 }

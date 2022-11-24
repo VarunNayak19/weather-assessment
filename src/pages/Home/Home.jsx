@@ -12,7 +12,7 @@ const Home = () => {
 
     setTimeout(() => {
         setloadervis(false)
-    }, 2000);
+    }, 500);
 
     const data = useSelector((state) => state);
     console.log(data)
@@ -57,19 +57,27 @@ const Home = () => {
 
 
     useEffect(() => {
-        favid.map((e, i) => {
-            console.log("e", e)
-            console.log("wid", weatherDetails.id);
-            if (e === weatherDetails.id) {
-                return setyellow(true);
-            }
-            else {
-                return setyellow(false);
-            }
-        })
+        // favid.map((e, i) => {
+        //     console.log("e", e)
+        //     console.log("wid", weatherDetails.id);
+        //     if (e === weatherDetails.id) {
+        //         return setyellow(true);
+        //         console.log(yellow);
+        //     }
+        //     else {
+        //         return setyellow(false);
+        //         console.log(yellow);
+        //     }
+        // })
+        if (favid.includes(weatherDetails.id)) {
+            return setyellow(true);
+        }
+        else {
+            return setyellow(false);
+        }
 
     }, [weatherDetails.id, favid])
-    console.log(yellow);
+    // console.log(yellow);
 
     //remocvefav
 
@@ -114,7 +122,7 @@ const Home = () => {
                                                 <img src={require(`../../assets/weathericons/${weatherDetails.weather[0].icon}@2x.png`)} alt='temp-icn' className='temp-icn' />
                                             </div>
                                             <div className="temp">
-                                                <span>{checked ? far.toFixed(0) : cel.toFixed(0)}</span> <div className='type'>
+                                                <div className='temp-display'><span>{checked ? far.toFixed(0) : cel.toFixed(0)}</span></div> <div className='type'>
                                                     {/* <div className='celcius'>
                                                         C
                                                     </div>
