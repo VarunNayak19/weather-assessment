@@ -106,7 +106,9 @@
 .capitalize {
   text-transform: capitalize;
 }
-
+.eachdiv:hover .yellowifying {
+  color: #ffe539;
+}
 @media only screen and (max-width: 768px) {
   .favourite-container {
     width: 95%;

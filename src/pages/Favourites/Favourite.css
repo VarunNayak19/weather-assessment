@@ -103,6 +103,9 @@
 .eachdiv:hover {
   background-color: rgba(255, 255, 255, 0.486);
 }
+.eachdiv:hover .yellowifying {
+  color: #ffe539;
+}
 .capitalize {
   text-transform: capitalize;
 }

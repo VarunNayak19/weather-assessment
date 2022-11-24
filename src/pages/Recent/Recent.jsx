@@ -91,7 +91,7 @@ const Recent = () => {
                 favarr.reverse().map((e, i) => (
                   <div className="eachdiv" key={i}>
                     <div className="city-dets" onClick={() => sendbacktohome(i)}>
-                      <span>{e.name}</span>, <span>{e.sys.country}</span>
+                      <span className='yellowifying'>{e.name}</span><span className='yellowifying'>,</span> <span className='yellowifying'>{e.sys.country}</span>
                     </div>
                     <div className="tempdets">
                       <img src={require(`../../assets/weathericons/${e.weather[0].icon}@2x.png`)} alt="wicon" className='w-icon' />
