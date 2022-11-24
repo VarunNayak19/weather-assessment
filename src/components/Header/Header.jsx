@@ -45,7 +45,7 @@ const Header = () => {
     // });
     // }
 
-    console.log("autocompleteData", autocompleteData);
+    // console.log("autocompleteData", autocompleteData);
 
     const dispatch = useDispatch();
     const [inputValue, setinputValue] = useState("")
@@ -56,7 +56,7 @@ const Header = () => {
     }, [dispatch])
 
     const item = useSelector((state) => state);
-    console.log("data", item)
+    // console.log("data", item)
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(fetchWeatherAction(inputValue));

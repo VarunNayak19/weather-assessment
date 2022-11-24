@@ -15,10 +15,10 @@ const Home = () => {
     }, 500);
 
     const data = useSelector((state) => state);
-    console.log(data)
+    // console.log(data)
     // const weatherDetails = data && data.weatherReducer.weather;
     const weatherDetails = JSON.parse(localStorage.getItem("searchfromthunk"))
-    console.log("weatherDetails", weatherDetails)
+    // console.log("weatherDetails", weatherDetails)
 
     //switch
     const [checked, setChecked] = useState(false);
@@ -36,7 +36,7 @@ const Home = () => {
 
     const onAddToCart = () => {
         const item = weatherDetails && weatherDetails;
-        console.log("w-w", item)
+        // console.log("w-w", item)
         dispatch(setAddItemToCart(item))
     }
 
@@ -44,14 +44,14 @@ const Home = () => {
     let tf = data && data.search && data.search.value;
     if (tf === true) {
         const item = weatherDetails && weatherDetails;
-        console.log("w-w", item)
+        // console.log("w-w", item)
         dispatch(setAddItemToList(item))
     }
 
     //yellow heart toggling 
 
     let favid = JSON.parse(localStorage.getItem("favid") || '[]');
-    console.log("favidinhome", favid)
+    // console.log("favidinhome", favid)
 
     const [yellow, setyellow] = useState(false)
 
@@ -83,8 +83,8 @@ const Home = () => {
 
     const onRemoveItem = (i) => {
         let item = weatherDetails;
-        console.log("items", item)
-        console.log("item removed");
+        // console.log("items", item)
+        // console.log("item removed");
         dispatch(setRemoveItemFromCart(item))
         setyellow(false)
     };

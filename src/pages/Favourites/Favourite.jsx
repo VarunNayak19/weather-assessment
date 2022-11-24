@@ -36,13 +36,13 @@ const Favourite = () => {
 
     //from redux
     let e = useSelector(selectCartItems);
-    console.log("selectCartItems", e);
+    // console.log("selectCartItems", e);
 
 
     const onRemoveItem = (i) => {
         let item = e[i];
-        console.log("items", item)
-        console.log("item removed");
+        // console.log("items", item)
+        // console.log("item removed");
         dispatch(setRemoveItemFromCart(item))
     };
 
@@ -52,7 +52,7 @@ const Favourite = () => {
     const navigate = useNavigate();
     const sendbacktohome = (i) => {
         let item2 = e[i];
-        console.log("2", item2);
+        // console.log("2", item2);
         localStorage.setItem("searchfromthunk", JSON.stringify(item2));
         navigate("/");
     }

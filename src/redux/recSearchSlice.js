@@ -29,7 +29,7 @@ const searchSlice = createSlice({
         },
         setTrue: (state, action) => {
             state.value = true;
-            console.log("tf", state.value)
+            // console.log("tf", state.value)
         }
 
 

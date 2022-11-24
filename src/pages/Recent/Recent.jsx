@@ -45,7 +45,7 @@ const Recent = () => {
 
   // let favarr = useSelector(selectCartItems2);
   let favarr = JSON.parse(localStorage.getItem("searchlist") || '[]');
-  console.log("favarr", favarr)
+  // console.log("favarr", favarr)
 
 
   const clearList = () => {
@@ -69,7 +69,7 @@ const Recent = () => {
   const navigate = useNavigate();
   const sendbacktohome = (i) => {
     let item2 = favarr[i];
-    console.log("2", item2);
+    // console.log("2", item2);
     localStorage.setItem("searchfromthunk", JSON.stringify(item2));
     navigate("/");
   }
