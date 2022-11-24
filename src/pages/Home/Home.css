@@ -86,7 +86,9 @@
 .desc h1 {
   text-transform: capitalize;
 }
-
+.yellowify {
+  color: #fad05b;
+}
 @media only screen and (max-width: 768px) {
   .place-details-div {
     margin: 0;
@@ -112,7 +114,7 @@
     margin-top: 230px;
   }
   .min-max {
-    min-width: 90px;
+    min-width: 110px;
   }
   .desc h1 {
     font-size: 18px;

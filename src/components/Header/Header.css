@@ -78,6 +78,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 5;
   }
   .mobile-drawer-content {
     position: relative;
@@ -91,10 +92,17 @@
     animation: slide 0.2s linear;
   }
   .mobile-drawer-content h3 {
-    color: black;
+    color: grey;
     font-weight: 400;
     font-size: 14px;
     margin-left: 30px;
+  }
+  .active h3 {
+    color: black !important;
+  }
+  .mobile-nav {
+    border-bottom: none !important;
+    text-decoration: none !important;
   }
   @keyframes slide {
     0% {

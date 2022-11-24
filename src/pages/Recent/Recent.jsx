@@ -7,6 +7,7 @@ import { setClearsearchItems } from '../../redux/recSearchSlice';
 
 const Recent = () => {
 
+
   const dispatch = useDispatch();
   //modal prep
   const [open, setOpen] = useState(false);
@@ -52,6 +53,19 @@ const Recent = () => {
     handleClose();
   }
 
+
+  //yellowwhitehearttoggle
+
+  // const [yellow, setyellow] = useState(false);
+  // let favid = JSON.parse(localStorage.getItem("favid") || '[]');
+  // console.log("favid", favid)
+  // favid.map((e, i) => (
+  //   favarr.map((e, i) => (
+
+  //   ))
+  // ))
+
+
   return (
     <>
       {
@@ -66,14 +80,14 @@ const Recent = () => {
             </div>
             <>
               {
-                favarr.map((e, i) => (
+                favarr.reverse().map((e, i) => (
                   <div className="eachdiv" key={i}>
                     <div className="city-dets">
                       <span>{e.name}</span>, <span>{e.sys.country}</span>
                     </div>
                     <div className="tempdets">
                       <img src={require(`../../assets/weathericons/${e.weather[0].icon}@2x.png`)} alt="wicon" className='w-icon' />
-                      <span>{e.main.temp.toFixed(0)}</span><span>{e.weather[0].description}</span>
+                      <span className='temp-value-in-fav'>{e.main.temp.toFixed(0)}<span>&#176;C</span></span><span>{e.weather[0].description}</span>
                     </div>
                     <div className="heart">
                       <img src={require("../../assets/icon_favourite_Active.png")} alt="heart" className='heart-yellow' />

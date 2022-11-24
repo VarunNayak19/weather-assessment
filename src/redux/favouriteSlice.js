@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     cartItems: localStorage.getItem("favlist") ? JSON.parse(localStorage.getItem("favlist")) : [],
+    favid: localStorage.getItem("favid") ? JSON.parse(localStorage.getItem("favid")) : [],
+    yellow: false
 }
 
 
@@ -22,20 +24,35 @@ const CartSlice = createSlice({
                     ...action.payload,
                 }
                 state.cartItems.push(temp);
+                state.favid.push(action.payload.id)
+
             }
             localStorage.setItem('favlist', JSON.stringify(state.cartItems))
+            localStorage.setItem('favid', JSON.stringify(state.favid))
         },
         setRemoveItemFromCart: (state, action) => {
             const removeItem = state.cartItems.filter((item) => item.id !== action.payload.id);
-            console.log("triggered")
-            // console.log(item.id);
-            console.log(action.payload)
+            const removeId = state.favid.filter((item) => item !== action.payload.id);
+            // state.favid.map((e, i) => {
+            console.log(action.payload.id)
+            //     console.log(e)
+            //     if (action.payload.id === e) {
+            //         return
+            //     }
+            //     else {
+            //         removeId.push(action.payload.id);
+            //     }
+            // })
             state.cartItems = removeItem;
+            state.favid = removeId;
             localStorage.setItem('favlist', JSON.stringify(state.cartItems));
+            localStorage.setItem('favid', JSON.stringify(state.favid))
         },
         setClearCartItems: (state, action) => {
             state.cartItems = [];
             localStorage.setItem("favlist", JSON.stringify(state.cartItems));
+            state.favid = [];
+            localStorage.setItem("favid", JSON.stringify(state.favid));
         },
 
 

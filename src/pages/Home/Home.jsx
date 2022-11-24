@@ -4,7 +4,7 @@ import { fetcWeatherDeatils } from '../../redux/dataSlice'
 import Switch from "react-switch";
 import './Home.css'
 import Loader from '../../components/Loader/Loader'
-import { setAddItemToCart } from '../../redux/favouriteSlice';
+import { setAddItemToCart, setRemoveItemFromCart } from '../../redux/favouriteSlice';
 import { setAddItemToList } from '../../redux/recSearchSlice';
 const Home = () => {
     const dispatch = useDispatch();
@@ -16,7 +16,8 @@ const Home = () => {
 
     const data = useSelector((state) => state);
     console.log(data)
-    const weatherDetails = data && data.weatherReducer.weather;
+    // const weatherDetails = data && data.weatherReducer.weather;
+    const weatherDetails = JSON.parse(localStorage.getItem("searchfromthunk"))
     console.log("weatherDetails", weatherDetails)
 
     //switch
@@ -41,12 +42,46 @@ const Home = () => {
 
 
     let tf = data && data.search && data.search.value;
-    console.log("tffffffffffffffffffffffffffffffffffffffff", tf)
     if (tf === true) {
         const item = weatherDetails && weatherDetails;
         console.log("w-w", item)
         dispatch(setAddItemToList(item))
     }
+
+    //yellow heart toggling 
+
+    let favid = JSON.parse(localStorage.getItem("favid") || '[]');
+    console.log("favidinhome", favid)
+
+    const [yellow, setyellow] = useState(false)
+
+
+    useEffect(() => {
+        favid.map((e, i) => {
+            console.log("e", e)
+            console.log("wid", weatherDetails.id);
+            if (e === weatherDetails.id) {
+                return setyellow(true);
+            }
+            else {
+                return setyellow(false);
+            }
+        })
+
+    }, [weatherDetails.id, favid])
+    console.log(yellow);
+
+    //remocvefav
+
+    const onRemoveItem = (i) => {
+        let item = weatherDetails;
+        console.log("items", item)
+        console.log("item removed");
+        dispatch(setRemoveItemFromCart(item))
+        setyellow(false)
+    };
+
+
 
     return (
         <>
@@ -60,10 +95,18 @@ const Home = () => {
                                     <div className="home-container">
                                         <div className='place-details-div'>
                                             <div className='placeDiv'><span>{weatherDetails && weatherDetails.name}</span>, <span>{weatherDetails && weatherDetails.sys.country}</span></div>
-                                            <div className='fav-div' onClick={onAddToCart}>
-                                                <img src={require("../../assets/icon_favourite.png")} alt="fav" />
-                                                <span>Add to Favourite</span>
-                                            </div>
+                                            {
+                                                yellow ? <div className='fav-div' onClick={onRemoveItem}>
+                                                    <img src={require("../../assets/icon_favourite_Active.png")} alt="fav" />
+                                                    <span className='yellowify'>Added to Favourite</span>
+                                                </div>
+
+                                                    :
+                                                    <div className='fav-div' onClick={onAddToCart}>
+                                                        <img src={require("../../assets/icon_favourite.png")} alt="fav" />
+                                                        <span>Add to Favourite</span>
+                                                    </div>
+                                            }
                                         </div>
 
                                         <div className='display-div'>
@@ -161,7 +204,7 @@ const Home = () => {
                                                 </div>
                                                 <div className="icn-det">
                                                     <span className='name'>Min-Max</span>
-                                                    <span className='value'>{weatherDetails && weatherDetails.main && weatherDetails.main.temp_min.toFixed(0)}-{weatherDetails && weatherDetails.main && weatherDetails?.main.temp_max.toFixed(0)}</span>
+                                                    <span className='value'>{weatherDetails && weatherDetails.main && weatherDetails.main.temp_min.toFixed(0)}&#176; -{weatherDetails && weatherDetails.main && weatherDetails?.main.temp_max.toFixed(0)}&#176;</span>
                                                 </div>
                                             </div>
                                             <div className="precipitation bottom-det">

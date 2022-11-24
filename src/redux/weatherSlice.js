@@ -31,6 +31,7 @@ const weatherSlice = createSlice({
         //fulfilled
         builder.addCase(fetchWeatherAction.fulfilled, (state, action) => {
             state.weather = action?.payload;
+            localStorage.setItem("searchfromthunk", JSON.stringify(state.weather));
             state.loading = false;
             state.error = undefined;
             console.log("fetched successfully...")

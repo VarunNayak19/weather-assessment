@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchWeatherAction } from '../../redux/weatherSlice';
 import { setAddItemsToSearchList } from '../../redux/favouriteSlice'
 import { setAddItemToList, setTrue } from '../../redux/recSearchSlice';
+import { NavLink } from 'react-router-dom';
 const Header = () => {
 
 
@@ -62,9 +63,17 @@ const Header = () => {
 
                     <div className='mobile-drawer-main' onClick={hideDrawerFn}>
                         <div className="mobile-drawer-content">
-                            <h3>Home</h3>
-                            <h3>Favourite</h3>
-                            <h3>Recent Search</h3>
+                            <NavLink to='/' className="mobile-nav">
+
+                                <h3>Home</h3>
+                            </NavLink >
+                            <NavLink to="/fav" className="mobile-nav">
+                                <h3>Favourite</h3>
+                            </NavLink>
+                            <NavLink to="/rec" className="mobile-nav">
+                                <h3>Recent Search</h3>
+                            </NavLink>
+
                         </div>
                     </div>
                 }

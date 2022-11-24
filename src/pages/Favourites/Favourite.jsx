@@ -71,7 +71,7 @@ const Favourite = () => {
                                         </div>
                                         <div className="tempdets">
                                             <img src={require(`../../assets/weathericons/${e.weather[0].icon}@2x.png`)} alt="wicon" className='w-icon' />
-                                            <span>{e.main.temp.toFixed(0)}</span><span>{e.weather[0].description}</span>
+                                            <span>{e.main.temp.toFixed(0)}&#176;C</span><span>{e.weather[0].description}</span>
                                         </div>
                                         <div className="heart">
                                             <img src={require("../../assets/icon_favourite_Active.png")} alt="heart" className='heart-yellow' onClick={() => onRemoveItem(i)} />
