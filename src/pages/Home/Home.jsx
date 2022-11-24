@@ -212,7 +212,7 @@ const Home = () => {
                                                 </div>
                                                 <div className="icn-det">
                                                     <span className='name'>Min-Max</span>
-                                                    <span className='value'>{weatherDetails && weatherDetails.main && weatherDetails.main.temp_min.toFixed(0)}&#176; -{weatherDetails && weatherDetails.main && weatherDetails?.main.temp_max.toFixed(0)}&#176;</span>
+                                                    <span className='value'>{weatherDetails && weatherDetails.main && weatherDetails.main.temp_min.toFixed(0)}&#176; - {weatherDetails && weatherDetails.main && weatherDetails?.main.temp_max.toFixed(0)}&#176;</span>
                                                 </div>
                                             </div>
                                             <div className="precipitation bottom-det">
